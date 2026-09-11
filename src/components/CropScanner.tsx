@@ -22,7 +22,8 @@ async function fileToDataUrl(file: File, max = 1100): Promise<string> {
 }
 
 function dataUrlToBlob(dataUrl: string): Blob {
-  const [head, body] = dataUrl.split(",");
+  const head = dataUrl.slice(0, dataUrl.indexOf(","));
+  const body = dataUrl.slice(dataUrl.indexOf(",") + 1);
   const mime = head.match(/data:(.*?);/)?.[1] ?? "image/jpeg";
   const bin = atob(body);
   const bytes = new Uint8Array(bin.length);
