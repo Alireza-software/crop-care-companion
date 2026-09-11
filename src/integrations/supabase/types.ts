@@ -14,7 +14,75 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      profiles: {
+        Row: {
+          city: string | null
+          created_at: string
+          full_name: string | null
+          id: string
+        }
+        Insert: {
+          city?: string | null
+          created_at?: string
+          full_name?: string | null
+          id: string
+        }
+        Update: {
+          city?: string | null
+          created_at?: string
+          full_name?: string | null
+          id?: string
+        }
+        Relationships: []
+      }
+      scans: {
+        Row: {
+          confidence: number
+          created_at: string
+          crop: string
+          disease: string | null
+          feedback: string | null
+          id: string
+          image_path: string | null
+          mistakes: Json
+          prevention: Json
+          severity: string | null
+          status: string
+          treatment: Json
+          user_id: string
+        }
+        Insert: {
+          confidence?: number
+          created_at?: string
+          crop: string
+          disease?: string | null
+          feedback?: string | null
+          id?: string
+          image_path?: string | null
+          mistakes?: Json
+          prevention?: Json
+          severity?: string | null
+          status?: string
+          treatment?: Json
+          user_id: string
+        }
+        Update: {
+          confidence?: number
+          created_at?: string
+          crop?: string
+          disease?: string | null
+          feedback?: string | null
+          id?: string
+          image_path?: string | null
+          mistakes?: Json
+          prevention?: Json
+          severity?: string | null
+          status?: string
+          treatment?: Json
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
